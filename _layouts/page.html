@@ -1,0 +1,383 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}"> 
+  
+    <meta itemprop="name" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"/>
+    <meta itemprop="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta itemprop="image" content="{{ "/assets/favicons/logo.png" | prepend: site.baseurl | prepend: site.url }}"/>
+  
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="manifest" href="{{ "/manifest.json" | prepend: site.baseurl | prepend: site.url }}" />
+    
+    <style>
+        @media (min-width: 1px) { 
+            html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:square}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}img,embed,iframe,object,audio,video{height:auto;width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0;text-align:left}
+
+            :root {
+
+                --text-color-1: #000;
+                --text-color-2: #444;
+                --text-color-3: #999;
+                --text-color-4: #fff;
+                --bg-color-1: #f0f1f2;
+                --bg-color-2: #f4f5f6;
+                --bg-color-3: #fafafa;
+                --bg-color-4: #fff;
+
+                --margin: 2.5rem;
+                --padding: 2.5rem;
+
+                --w128: 128rem;
+                --w120: 120rem;
+                --w108: 108rem;
+
+                --col1: 8.33%;
+                --col2: 16.67%;
+                --col3: 25.00%;
+                --col4: 33.33%;
+                --col5: 41.67%;
+                --col6: 50.00%;
+                --col7: 58.33%;
+                --col8: 66.67%;
+                --col9: 75.00%;
+                --col10: 83.33%;
+                --col11: 91.67%;
+                --col12: 100%;
+
+                --headline: 4.8rem;
+                --h1: 3rem;
+                --h2: 2.4rem;
+                --h3: 2.2rem;
+                --h4: 2rem;
+                --h5: 1.9rem;
+                --h6: 1.8rem;
+                --p: 1.8rem;
+                --p1: 1.6rem;
+                --p2: 1.4rem;
+                --p3: 1.2rem;
+            }
+
+            html {
+                font: normal normal 300 62.5%/1 sans-serif;
+                color: var(--text-color-2, #444);
+                background-color: var(--bg-color-4, #fff);
+            }
+
+            html {
+                font-family: "Roboto", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            }
+
+
+            h1, h2, h3, h4, h5, h6 {
+                color: var(--text-color-1, #000);
+                line-height: 1.1;
+                letter-spacing: -0.07rem;
+            }
+
+            h1 {
+                font-size: var(--h1, 3rem);
+            }
+
+            h2 {
+                font-size: var(--h2, 2.4rem);
+            }
+
+            h3 {
+                font-size: var(--h3, 2.2rem);
+            }
+
+            h4 {
+                font-size: var(--h4, 2rem);
+            }
+
+            h5 {
+                font-size: var(--h5, 1.9rem);
+            }
+
+            h6 {
+                font-size: var(--h6, 1.8rem);
+            }
+
+            body, span, time, mark, abbr, dfn, dl, dt, code,
+            kbd, pre, p, ol, ul, li, table, td, tr, th, figcaption, blockquote, q {
+                font-size: var(--p2, 1.4rem);
+                line-height: 1.6;
+            }
+
+            blockquote {
+                font-style: italic;
+                font-size: var(--h4, 2.2rem);
+                border: 0.01rem solid var(--bg-color-1);
+                padding: 1rem;
+                margin: var(--margin, 2.5rem) 0;
+            }
+
+            .line {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0 1rem;
+            }
+
+            .box {
+                width: 100%;
+                display: flex;
+                max-width: var(--w120);
+            }
+
+
+            body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                background-color: var(--bg-color-3);
+            }
+
+            .main {
+                flex: 1;
+                margin: 5rem 0;
+            }
+
+            .header {
+                padding: 1rem;
+                background-color: var(--bg-color-4)
+            }
+
+            .footer {
+                background-color: var(--bg-color-2);
+                padding: var(--margin);
+            }
+
+            a {
+                color: var(--text-color-3, #999);
+                text-decoration: underline;
+            }
+
+            a:hover {
+                color: var(--text-color-2, #444);
+            }
+            
+            a:visited {
+                color: var(--text-color-1, #000);
+            }
+            
+            a:active {
+                color: var(--text-color-1, #000)
+            }
+
+            button {
+                color: var(--bg-color-1);
+                background-color: var(--text-color-2, #444);
+                border: 1px solid var(--text-color-1, #000);
+                padding: .4rem;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: var(--bg-color-1, #afafaf);
+            }
+
+            .mindmap, .video, .slides,
+            .map, .audio, .figure {
+                position: relative;
+                padding-bottom: 56.25%;
+                margin: var(--margin, 2.5rem) 0;
+            }
+
+            .audio {
+                padding-bottom: 24%;
+            }
+
+            .figure {
+                border: 0.1rem solid var(--bg-color-2, #f1f1f1);
+            }
+
+            #rep_video {
+                cursor: pointer;
+            }
+
+            figcaption {
+                text-align: center;
+            }
+
+            img {
+                width:100%;
+                height: auto;
+            }
+
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%
+            }
+
+            .copyright {
+                font-size: var(--p3);
+            }
+
+            .r { font-weight: 400; } .m { font-weight: 600; }
+            .logo, .menu { width: var(--col6, 50%); }
+            .menu-list { list-style-type: none; text-align: right; }
+            .menu-item, .content-item { display: inline; }
+
+            .content { width: 100%; max-width: var(--w120);}
+            .content-list { list-style-type: none; }
+            .content-item { 
+                width: 100%;
+                display: inline-block;
+                padding: 0 0 2.5rem 0;
+            }
+
+            .content-item:last-child {
+                padding: 0;
+            }
+
+            .content-link { text-decoration: none; }
+            .content-header { 
+                background-color: var(--bg-color-4);
+                border-width: 1px 1px 1px 1px; border-color: rgba(233, 235, 237, 1); border-radius: 8; border-style: solid; box-shadow: 0px 1.5px 3px 0px rgba(225, 227, 229, 0.6);
+            }
+
+            .content-header:hover {
+                border-style: solid; box-shadow: 0px 3.5px 6px 0px rgba(225, 227, 229, 0.6);
+            }
+
+            .item-title {
+                font-weight: 600;
+                padding: 0 1rem 1rem;
+            }
+            
+            .main .box {
+                flex-direction: column;
+            }
+
+            .article {
+                width: 100%;
+                max-width: 80rem;
+            }
+            
+            .course-menu {
+                width: 100%;
+                padding: 5rem 0 0 0;
+                border-top: 0.1rem solid var(--bg-color-1);
+            }
+            
+            .course-content {
+                background-color: var(--bg-color-2);
+                padding: 2rem;  
+            }
+
+            .course-module, .course-lesson {
+                list-style-type: none;
+            }
+
+            .article > h1, h2, h3, p, ul, ol {
+                margin-bottom: 1rem;
+            }
+
+            .course-lessons {
+                margin-bottom: 2rem;    
+            }
+
+            .course-menu-title {
+                color: var(--text-color-3);
+            }
+        }
+
+        @media (min-width: 500px) {
+            .content-item {
+                width: 49.5%;
+            }
+
+            .content-item:nth-child(1n) {
+                padding: 0 1rem 2.5rem 0;
+                margin:0;
+            }
+
+            .content-item:nth-child(2n) {
+                padding: 0 0 2.5rem 0;
+                margin: 0;
+            }
+
+            .main .box {
+                flex-direction: row;
+            }
+
+            .article {
+                width: 66.66%;
+                max-width: 80rem;
+            }
+            
+            .course-menu {
+                width: 33.33%;
+                max-width: 40rem;
+                padding: 0 0 0 2rem;
+                border-top: none;
+            }
+        }
+
+        @media (min-width: 960px) { 
+            .content-item, .content-item:nth-child(1n), .content-item:nth-child(2n) {
+                width: 33%;
+                padding: 0 0.5% 2.5rem; 
+            }
+
+            .course-menu {
+                padding: 0 0 0 5rem;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <header class="line header">
+        <div class="box">
+            <div class="logo">
+                <a href="/">
+                    <span class="r">RODOLFO</span><span class="m">MACIEL</span>
+                </a>
+            </div>
+            <nav class="menu">
+                <ul class="menu-list">
+                        <li class="menu-item"><a href="tuts.html" class="menu-link">tuts</a></li>
+                        <li class="menu-item"><a href="talks.html" class="menu-link">talks</a></li>
+                        <li class="menu-item"><a href="tools.html" class="menu-link">tools</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="line main">
+        <div class="box">
+            <div class="content">
+                {{ content }}
+            </div>
+        </div>
+    </main>
+    <footer class="line footer">
+        <div class="box">
+                <p class="copyright">Produzido orgulhosamente com <a href="https://opensource.org">Open Source</a> e <a href="https://linuxfoundation.org">Linux.</a> O conteúdo deste site está sob a licença <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons BY-SA</a></p>
+        </div>
+    </footer>
+</body>
+<script>
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker
+                .register('/sw.js')
+                .then(function() { console.log("Service Worker Registered"); });
+    }
+    </script>
+</html>
+        

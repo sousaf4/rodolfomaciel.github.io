@@ -1,0 +1,22 @@
+{
+    "short_name": "RM",
+    "name": "Rodolfo Maciel",
+    "theme_color": "#fff",
+    "background_color": "#fff",
+    "scope": "/",
+    "start_url": "/?utm_source=homescreen",
+    "description" : "Cursos online grátis sobre design, marketing e tecnologias web",
+    "display": "standalone",
+    "favicons": [
+      {
+        "src": "/assets/favicons/",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/assets/favicons/",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+}
